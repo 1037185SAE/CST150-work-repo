@@ -52,3 +52,43 @@ button.addEventListener("click", function() {
   text.textContent = "You clicked the button!";
   text.style.color = "blue";
 });
+
+let ldswitch = document.getElementsByClassName("ldswitch")[0];
+let ldswitchpict = document.getElementsByClassName("ldswitchpict")[0];
+let colour_mode = undefined;
+
+function colour_mode_name() {
+  if (colour_mode === true) {
+    return "light"
+  } else {
+    return "dark"
+  }
+}
+
+function colour_mode_pict() {
+  if (colour_mode === true) {
+    return "moon"
+  } else {
+    return "sun"
+  }
+}
+
+const dark_mode_mql = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+
+if (dark_mode_mql && dark_mode_mql.matches) {
+  colour_mode = false;
+} else {
+  colour_mode = true;
+}
+
+function update_colours() {
+  document.documentElement.dataset.theme = colour_mode_name();
+  ldswitchpict.src = `./${colour_mode_pict()}.png`
+}
+
+update_colours();
+
+ldswitch.addEventListener("click", function() {
+  colour_mode = !colour_mode;
+  update_colours();
+  });

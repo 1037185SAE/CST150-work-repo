@@ -1,11 +1,64 @@
+:root[data-theme="light"] {
+  --body-back-colour: #f8f9fa;
+  --body-colour: #333;
+  --header-colour: #0056b3;
+  --a-colour: #ff6600;
+  --header-back: #1e3a5f;
+  --header-colour: #ffffff;
+  --nav-back: #2f5d8c;
+  --nav-colour: #ffffff;
+  --nav-a-colour: #ffffff;
+  --nav-a-back-colour: #24496e;
+  --nav-a-hover-back-colour: #18324d;
+  --aside-back: #e2e8f0;
+  --aside-colour: #020800;
+  --footer-back-colour: #1e3a5f;
+  --footer-colour: #ffffff;
+  --card-back-colour: #ffffff;
+  --card-colour: #000000;
+  --button-back-colour: #0056b3;
+  --button-colour: #ffffff;
+  --button-back-colour-hover: #003d82;
+  --ldswitch-back-colour: #2e4a6f;
+  --ldswitch-back-colour-hover: #4e6a8f;
+  --section-back: #ffffff;
+}
+
+:root[data-theme="dark"] {
+  --body-back-colour: #0f0f0f;
+  --body-colour: #111;
+  --header-colour: #ffffff;
+  --a-colour: #3f3600;
+  --header-back: #1f1f1f;
+  --header-colour: #ffffff;
+  --nav-back: #2f2f2f;
+  --nav-colour: #ffffff;
+  --nav-a-colour: #ffffff;
+  --nav-a-back-colour: #0f0f0f;
+  --nav-a-hover-back-colour: #08022d;
+  --aside-back: #020800;
+  --aside-colour: #e2e8f0;
+  --footer-back-colour: #3f3f3f;
+  --footer-colour: #ffffff;
+  --card-back-colour: #1a1a1a;
+  --card-colour: #ffffff;
+  --button-back-colour: #101010;
+  --button-colour: #ffffff;
+  --button-back-colour-hover: #000d22;
+  --ldswitch-back-colour: #0e0a2f;
+  --ldswitch-back-colour-hover: #0e0a2f;
+  --section-back: #ffffff;
+}
+
 * {
   box-sizing: border-box;
+  transition: background 0.3s ease-in-out;
 }
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #f8f9fa;
-  color: #333;
+  background-color: var(--body-back-colour);
+  color: var(--body-colour);
   line-height: 1.6;
   margin: 0;
   padding: 0;
@@ -21,11 +74,11 @@ body {
 }
 
 h1, h2, h3 {
-  color: #0056b3;
+  color: var(--header-color);
 }
 
 a {
-  color: #ff6600;
+  color: var(--a-color);
   text-decoration: none;
 }
 
@@ -34,17 +87,20 @@ a:hover {
 }
 
 header {
+  display: flex;
+  justify-content: space-between;
   grid-area: header;
-  background: #1e3a5f;
-  color: white;
+  background: var(--header-back);
+  color: var(--header-colour);
   padding: 20px;
   text-align: center;
+  width: 100%;
 }
 
 nav {
   grid-area: nav;
-  background: #2f5d8c;
-  color: white;
+  background: var(--nav-back);
+  color: var(--nav-colour);
   padding: 20px;
 }
 
@@ -61,15 +117,15 @@ nav ul {
 nav a {
   display: block;
   text-decoration: none;
-  color: white;
+  color: var(--nav-a-colour);
   padding: 10px;
-  background-color: #24496e;
+  background-color: var(--nav-a-back-colour);
   border-radius: 6px;
   text-align: center;
 }
 
 nav a:hover {
-  background-color: #18324d;
+  background-color: var(--nav-a-hover-back-colour);
 }
 
 main {
@@ -79,20 +135,22 @@ main {
 
 aside {
   grid-area: aside;
-  background: #e2e8f0;
+  background: var(--aside-back);
+  color: var(--aside-colour);
   padding: 20px;
 }
 
 footer {
   grid-area: footer;
-  background-color: #1e3a5f;
-  color: white;
+  background-color: var(--footer-back-colour);
+  color: var(--footer-colour);
   text-align: center;
   padding: 15px;
 }
 
 .card {
-  background-color: white;
+  background-color: var(--card-back-colour);
+  color: var(--card-colour);
   padding: 20px;
   margin-bottom: 20px;
   border-radius: 8px;
@@ -100,17 +158,16 @@ footer {
 }
 
 button {
-  background-color: #0056b3;
-  color: white;
+  background-color: var(--button-back-colour);
+  color: var(--button-colour)
   border: none;
   padding: 10px 20px;
   border: none;
   cursor: pointer;
-  transition: background 0.3s ease-in-out;
 }
 
 button:hover {
-  background-color: #003d82;
+  background-color: var(--button-back-colour-hover);
 }
 
 @keyframes fadeIn {
@@ -124,10 +181,27 @@ button:hover {
   padding: 20px;
 }
 
+.ldswitch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background-color: var(--ldswitch-back-colour);
+  border-radius: 6px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.ldswitch:hover {
+  background-color: var(--ldswitch-back-colour-hover);
+}
+
 section {
   margin-bottom: 40px;
   padding: 20px;
-  background: white;
+  background: var(--section-back);
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   animation: fadeIn 1s ease-in-out;
